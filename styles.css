@@ -1,0 +1,218 @@
+/* Dark mode always on */
+:root {
+  --bg: #0b0b0c;
+  --card: #121214;
+  --text: #f3f3f3;
+  --muted: #b8b8b8;
+  --accent: #d4a017; /* gold */
+  --danger: #e45757;
+  --ok: #2fd083;
+  --border: #262626;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.header, .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  object-fit: cover;
+}
+.brand .name { font-weight: 700; font-size: 20px; }
+.brand .tagline { color: var(--muted); font-size: 14px; }
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid var(--accent);
+  color: var(--text);
+  background: transparent;
+  border-radius: 8px;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.35); border-color: #f6c451; }
+.btn.primary { background: var(--accent); color: #111; border-color: var(--accent); }
+.btn.primary:hover { background: #f6c451; }
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+.grid.gallery {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 720px) {
+  .grid.gallery { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 460px) {
+  .grid.gallery { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 10px;
+  background: #1a1a1d;
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Service menu */
+.service-list {
+  display: grid;
+  gap: 12px;
+}
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+.service-item .title { font-weight: 600; }
+.service-item .actions { display: flex; gap: 8px; }
+
+/* Pricing blocks */
+.pricing {
+  display: grid;
+  gap: 12px;
+}
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+.price-row .label { color: var(--muted); }
+.price-row .value { font-weight: 700; color: var(--accent); }
+
+/* Notes */
+.note {
+  padding: 12px 14px;
+  border: 1px dashed var(--accent);
+  border-radius: 10px;
+  color: var(--muted);
+  background: #141416;
+}
+
+/* Booking form */
+.form {
+  display: grid;
+  gap: 14px;
+}
+.form-row {
+  display: grid;
+  gap: 6px;
+}
+label { font-size: 14px; color: var(--muted); }
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #141416;
+  color: var(--text);
+  border: 1px solid var(--border);
+  outline: none;
+}
+input::placeholder, textarea::placeholder { color: #8c8c8c; }
+textarea { resize: vertical; min-height: 96px; }
+
+.form-actions { display: flex; gap: 10px; align-items: center; }
+
+/* Modal */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,.65);
+  display: none; align-items: center; justify-content: center; z-index: 999;
+}
+.modal {
+  width: min(560px, 92vw);
+  background: var(--card);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 18px;
+  transform: scale(.96);
+  opacity: 0;
+}
+.modal.show {
+  transform: scale(1);
+  opacity: 1;
+  transition: transform .16s ease, opacity .16s ease;
+}
+.modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.modal-title { font-weight: 700; }
+.modal-close { border: none; background: transparent; color: var(--muted); font-size: 20px; cursor: pointer; }
+.modal-body { color: var(--text); }
+
+/* Floating contact buttons */
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: grid;
+  gap: 10px;
+  z-index: 1000;
+}
+.fab .fab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--card);
+  color: var(--text);
+  font-size: 14px;
+}
+.fab .fab-btn:hover { border-color: #f6c451; }
+.fab .fab-icon {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Footer */
+.footer { border-top: 1px solid var(--border); margin-top: 24px; padding-top: 16px; }

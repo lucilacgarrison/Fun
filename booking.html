@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Booking — Lucila C Garrison</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <img src="assets/profile.jpg" alt="Profile">
+        <div>
+          <div class="name" data-brand="name">Lucila C Garrison</div>
+          <div class="tagline" data-brand="tagline">Elegance, discretion, and seamless booking.</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h3>Booking form</h3>
+      <form id="bookingForm" class="form" method="POST" action="https://formspree.io/f/xdkbnyqz">
+        <input type="hidden" id="country" name="country" value="">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Full name" required>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email / Phone number</label>
+          <input id="email" name="email" type="text" placeholder="Email or phone" required>
+        </div>
+
+        <div class="form-row">
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="Intimate Escape">Intimate Escape</option>
+            <option value="Hook Up">Hook Up</option>
+            <option value="Content">Content</option>
+            <option value="Facetime">Facetime</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="duration">Duration</label>
+          <select id="duration" name="duration" required>
+            <option value="">Select duration</option>
+            <option value="1 hour">1 hour</option>
+            <option value="2 hours">2 hours</option>
+            <option value="Overnight">Overnight</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="3" placeholder="Street, City, State/Region, Postal code" required></textarea>
+        </div>
+
+        <div class="form-row">
+          <label for="incallOutcall">Select Incall or Outcall</label>
+          <select id="incallOutcall" name="incallOutcall" required>
+            <option value="">Select one</option>
+            <option value="Incall">Incall</option>
+            <option value="Outcall">Outcall</option>
+          </select>
+        </div>
+
+        <div class="form-row" id="paymentContainer">
+          <label for="paymentMethod">Select Payment Method</label>
+          <select id="paymentMethod" name="paymentMethod" required>
+            <option value="">Select a payment method</option>
+            <!-- Options injected by script.js based on country -->
+          </select>
+        </div>
+
+        <div class="note" id="location-note">Detecting location...</div>
+
+        <div class="form-actions">
+          <button class="btn primary" id="submitBtn" type="submit">Submit booking</button>
+          <span id="loadingText" style="display:none;color:var(--muted);">Submitting…</span>
+        </div>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <span>© 2025 Lucila C Garrison</span>
+    </footer>
+  </div>
+
+  <div class="fab">
+    <a class="fab-btn" data-fab="whatsapp" target="_blank" rel="noopener"><span class="fab-icon"></span><span>WhatsApp</span></a>
+    <a class="fab-btn" data-fab="signal" target="_blank" rel="noopener"><span class="fab-icon"></span><span>Signal</span></a>
+    <a class="fab-btn" data-fab="kik" target="_blank" rel="noopener"><span class="fab-icon"></span><span>Kik</span></a>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="modal">
+      <div class="modal-head">
+        <div class="modal-title" id="modalTitle">Message</div>
+        <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body" id="modalBody">...</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
