@@ -68,17 +68,23 @@ a:hover { text-decoration: underline; }
   display: grid;
   gap: 16px;
 }
+
+/* Gallery grid */
 .grid.gallery {
   grid-template-columns: repeat(3, 1fr);
 }
+
+/* Tablet breakpoint */
 @media (max-width: 720px) {
   .grid.gallery { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ✅ Mobile fix: 2 columns instead of 1 */
 @media (max-width: 460px) {
-  .grid.gallery { grid-template-columns: 1fr; }
+  .grid.gallery { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ✅ Gallery Fix */
+/* Image wrapper */
 .image {
   width: 100%;
   aspect-ratio: 4/3;
@@ -94,20 +100,24 @@ a:hover { text-decoration: underline; }
   color: var(--muted);
   font-size: 13px;
 }
+
+/* Image itself */
 .image img {
   max-width: 100%;
-  height: auto;
-  display: block;
+  max-height: 100%;
   border-radius: 8px;
   object-fit: cover;
+  display: block;
 }
 
+/* Card wrapper */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 16px;
 }
+
 
 /* Service menu */
 .service-list {
