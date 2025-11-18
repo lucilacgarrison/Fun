@@ -81,8 +81,9 @@ a:hover { text-decoration: underline; }
 
 /* ✅ Mobile fix: 2 columns instead of 1 */
 @media (max-width: 460px) {
-  .grid.gallery { grid-template-columns: repeat(2, 1fr); }
-}
+  .grid.gallery { grid-template-columns: repeat(2, 1fr);}
+    
+  }
 
 /* Image wrapper */
 .image {
