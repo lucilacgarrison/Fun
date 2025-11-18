@@ -77,6 +77,13 @@ a:hover { text-decoration: underline; }
 @media (max-width: 460px) {
   .grid.gallery { grid-template-columns: 1fr; }
 }
+.image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
 
 .card {
   background: var(--card);
