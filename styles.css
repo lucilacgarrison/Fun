@@ -77,31 +77,36 @@ a:hover { text-decoration: underline; }
 @media (max-width: 460px) {
   .grid.gallery { grid-template-columns: 1fr; }
 }
-.image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-}
 
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
-}
-
+/* ✅ Gallery Fix */
 .image {
   width: 100%;
   aspect-ratio: 4/3;
   border-radius: 10px;
   background: #1a1a1d;
   border: 1px solid var(--border);
-  display: grid;
-  place-items: center;
+
+  /* Center alignment */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   color: var(--muted);
   font-size: 13px;
+}
+.image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
 }
 
 /* Service menu */
